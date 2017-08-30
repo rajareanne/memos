@@ -1,0 +1,16 @@
+#!/bin/bash
+
+name=memo1
+bibname=hyperion
+
+# run latex
+pdflatex $name.tex && bibtex $name
+
+# if latex terminated with errors, exit this script
+[ $? -ne 0 ] && exit
+
+# run latex again so that it gets all the cross-references right.
+pdflatex $name.tex
+
+# view pdf file
+evince $name.pdf

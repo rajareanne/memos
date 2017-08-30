@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\newcommand{\thetitle}{HYPERION Memo \#1: The Relationship Between System 
+Temperature and Sky Beam Coverage}
+\newcommand{\theauthor}{Kara Kundert}
+\newcommand{\theauthorsemail}{kkundert@berkeley.edu}
+\newcommand{\thedate}{June 23, 2016}
+% the following controls some aspects of how the text is displayed on the page
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.25in}
+\setlength{\oddsidemargin}{0in}
+
+% set up the page headers and footers
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \lhead{\sffamily\slshape\small\thetitle}
+    \rhead{\sffamily\small\theauthor}
+    \cfoot{\sffamily\slshape\small\thepage}
+
+% support display of graphics
+\usepackage{graphicx}
+
+% the following control some aspects of how paragraphs are displayed
+\parindent=0pt
+\parskip=2ex
+
+% import library of technical symbols
+\usepackage{amsmath,amssymb,latexsym}
+
+% import bibliography tools
+\usepackage{natbib}
+\citestyle{aa}
+
+\begin{document}
+% print the title in san-serif font, in bold, in huge characters
+\title{
+    \sffamily\bfseries\huge
+    \thetitle \\
+}
+% print the author in san-serif font
+\author{
+    \sffamily\theauthor \\
+    \sffamily\theauthorsemail
+}
+\date{\thedate}
+\maketitle
+\sloppy
+
+\section{Introduction}
+
+
+\section{Background and Theory}
+
+\begin{equation}
+    \label{eq:sys-temp}
+    T_{sys} = T_{sky} * 10^{dB/10} + T_{rx} * (1 - 10^{dB/10})
+\end{equation}
+
+\secion{Method}
+
+
+\section{Data and Analysis}
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/kara/capo/kmk/scripts/sysTemp.png}
+    \end{center}
+    \caption{
+        Pictured above is the relationship between the fractional sky coverage 
+        as determined by the beam-limiting baffles and the overall system 
+        temperature. It is readily apparent that below $10\%$ sky coverage, the 
+        system temperature is completely dominated by the presence of the 300 K 
+        baffles.
+    }
+    \label{fig:sys-temp}
+\end{figure}
+
+\section{Conclusions}
+
+
+\bibliography{hyperion}{}
+\bibliographystyle{apj}
+
+\end{document}
+
+
+
+
+

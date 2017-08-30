@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\newcommand{\thetitle}{HYPERION Memo \#1: The Relationship Between System 
+Temperature and Sky Beam Coverage}
+\newcommand{\theauthor}{Kara Kundert}
+\newcommand{\theauthorsemail}{kkundert@berkeley.edu}
+\newcommand{\thedate}{June 23, 2016}
+% the following controls some aspects of how the text is displayed on the page
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.25in}
+\setlength{\oddsidemargin}{0in}
+
+% set up the page headers and footers
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \lhead{\sffamily\slshape\small\thetitle}
+    \rhead{\sffamily\small\theauthor}
+    \cfoot{\sffamily\slshape\small\thepage}
+
+% support display of graphics
+\usepackage{graphicx}
+
+% the following control some aspects of how paragraphs are displayed
+\parindent=0pt
+\parskip=2ex
+
+% import library of technical symbols
+\usepackage{amsmath,amssymb,latexsym}
+
+% import bibliography tools
+\usepackage{natbib}
+\citestyle{aa}
+
+\begin{document}
+% print the title in san-serif font, in bold, in huge characters
+\title{
+    \sffamily\bfseries\huge
+    \thetitle \\
+}
+% print the author in san-serif font
+\author{
+    \sffamily\theauthor \\
+    \sffamily\theauthorsemail
+}
+\date{\thedate}
+\maketitle
+\sloppy
+
+\section{Introduction}
+
+In this memo, we seek to explore in further detail the idea of an 
+interferometric study of the spatial monopole of the 21cm brightness 
+temperature as a function of redshift (i.e. the ``global signal"). In order to 
+directly sample the zero-spacing mode of the sky, most previous studies of the 
+global signal have been single-element experiments. However, it is our 
+assertion that an interferometric approach can not only help to mitigate many 
+of the systematics inherent to single-element experiments, but can also, given 
+a clever experimental design and approach to data analysis, successfully sample 
+the spatial monopole. 
+
+One of the modifications we can make to our experimental design is to 
+artificially impose a spatial scale on the monopole through the creation of a 
+horizon. From a Fourier perspective, the existence of the horizon interrupts 
+the flat nature of the spatial monopole, which creates leakage from the DC-mode 
+into modes with non-zero interferometric spacings. As discussed in 
+\cite{presley2015}, a spacing of approximately one wavelength is ideal in 
+balancing engineering constraints while maximizing reception of the spatial 
+monopole.
+
+We note in this memo that, by manipulating the scale of the horizon, we are 
+similarly able to manipulate this Fourier leakage and thereby observe the 
+monopole signal from other Fourier modes.  By constructing absorptive 
+beam-shaping baffles around the individual elements of our interferometer, we 
+believe that we can optimize our proposed global signal interferometric 
+experiment.
+
+\section{Simulation}
+
+The simulation calculates the system temperature as shown below in 
+Eq.~\eqref{eq:sys-temp}, where $T_{sys}$ is the overall system temperature, 
+$T_{rx}$ is the receiver noise temperature, $T_{abs}$ is the temperature of the 
+absorptive baffle structures, $T_{sky}$ is the sky temperature, $T_{21}$ is the 
+21cm monopole brightness temperature, $\Omega$ is the full visible sky coverage 
+from horizon to horizon, and $\Omega'$ is the baffle-modified sky coverage.
+
+\begin{equation}
+    \label{eq:sys-temp}
+    T_{sys} = \frac{T_{rx} \Omega + T_{abs} (\Omega - \Omega') + (T_{sky} + 
+    T_{21}) \Omega'}{\Omega'}
+\end{equation}
+
+For the purposes of this test, we have set some of the above parameters to be 
+constants. The baffle absorber was set to be a standard blackbody with a 
+temperature $T_{abs} = 300$ K. The overall sky temperature $T_{sky}$ was 
+calculated off of numbers presented in~\cite{rogers2008} and models presented 
+in~\cite{haslam1982}.  With the initial brightness temperature measured to be 
+$T = 237$ K at $\nu = 150$ MHz, Eq.~\eqref{eq:synch-temp} was implemented with 
+a final frequency of $\nu = 70$ MHz and a spectral index $\beta = 2.5$ to 
+receive a final galactic brightness temperature of approximately $T_{sky} = 
+1600$ K.  Finally, the best estimate of the brightness temperature of the 
+global sky signal is approximately $T_{21} = 20$ mK~\citep{pritchard-loeb2010}.  
+We have iterated over an initial selection of $T_{rx} = 50 - 300$ K, as we 
+believe these to be potentially attainable noise levels for a non-cryogenically 
+cooled low-noise amplifier. 
+
+\begin{equation}
+    \label{eq:synch-temp}
+    T(\nu) = T(\nu_{150}) \Big(\frac{\nu}{\nu_{150}} \Big)^{-\beta}
+\end{equation}
+
+In this simulation, we aim to determine the regime over which the 
+baffle-limited beam will enable Fourier spreading of the global signal into 
+neighboring spatial frequency bins while simultaneously ensuring that the sky 
+remains the dominant term in the system temperature, as that will give us the 
+best chances later of recovering the extremely faint 21cm global sky signal.
+
+\section{Conclusions}
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/kara/capo/kmk/scripts/sysTemp.png}
+    \end{center}
+    \caption{
+        Pictured above is the relationship between the fractional sky coverage 
+        as determined by the beam-limiting baffles and the overall system 
+        temperature. It is readily apparent that below $10\%$ sky coverage, the 
+        system temperature is completely dominated by the presence of the 300 K 
+        baffles.
+    }
+    \label{fig:sys-temp}
+\end{figure}
+
+Pictured in Fig.~\ref{fig:sys-temp}, in a test with a fractional sky coverage 
+$\Omega'/\Omega$ ranging from 0.01 to 1, it is clear that the vast majority of 
+the parameter space has a system temperature dominated by the absorptive 
+baffles. From this plot, we can conclude that -- at an absolute minimum -- we 
+must construct our absorptive baffles to admit at least $10\%$ of the sky in 
+order to ensure that the sky is the dominant term in our system. However, in 
+order to ensure a system temperature of less than 6000 K, we will need to admit 
+at least $20\%$ of the sky. We can also conclude that the receiver noise 
+temperature is a relatively minor contributing factor to the overall system 
+temperature, and that the experiment will not be strongly affected by the 
+selection of cheaper 150 K amplifiers over more costly, lower noise options.
+
+\bibliography{hyperion}{}
+\bibliographystyle{apj}
+
+\end{document}
+
+
+
+
+
