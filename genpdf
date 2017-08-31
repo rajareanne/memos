@@ -1,6 +1,6 @@
 #!/bin/bash
 
-name=memo1
+name=memo3
 bibname=hyperion
 
 # run latex

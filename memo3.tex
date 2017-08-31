@@ -1,9 +1,9 @@
 \documentclass[11pt]{article}
 \newcommand{\thetitle}{HYPERION Memo \#3: Testing the Radio Environment in 
 Rangely, CO}
-\newcommand{\theauthor}{Kara Kundert}
-\newcommand{\theauthorsemail}{kkundert@berkeley.edu}
-\newcommand{\thedate}{June 23, 2016}
+\newcommand{\theauthor}{Kara Kundert and Raj Biswas}
+\newcommand{\theauthorsemail}{kkundert@berkeley.edu, rbiswas@berkeley.edu}
+\newcommand{\thedate}{September 2017}
 % the following controls some aspects of how the text is displayed on the page
 \setlength{\textwidth}{6.5in}
 \setlength{\textheight}{8.25in}
@@ -47,29 +47,33 @@ Rangely, CO}
 
 \section{Introduction}
 
+This memo lays out the results of some initial radio environment testing in and 
+around Rangely, Colorado. It also aims to lay out some analysis of what these 
+results mean for the HYPERION instrument and suggests some new ideas for 
+mitigation of environmental factors.
 
 \section{Background and Theory}
 
+\citep{pritchard-loeb2010}
+
 \begin{equation}
-    \label{eq:sys-temp}
-    T_{sys} = T_{sky} * 10^{dB/10} + T_{rx} * (1 - 10^{dB/10})
+    \label{eq:baffle-temp}
+    T_{baffle} = T_{sky} * 10^{dB/10} + T_{abs} * (1 - 10^{dB/10})
 \end{equation}
 
-\secion{Method}
+\section{Method}
 
 
 \section{Data and Analysis}
 
 \begin{figure}
     \begin{center}
-    \includegraphics[width=\linewidth]{/home/kara/capo/kmk/scripts/sysTemp.png}
+    \includegraphics[width=\linewidth]{/home/kara/documents/hyperion/memos/memo3figs/107.jpeg}
     \end{center}
     \caption{
-        Pictured above is the relationship between the fractional sky coverage 
-        as determined by the beam-limiting baffles and the overall system 
-        temperature. It is readily apparent that below $10\%$ sky coverage, the 
-        system temperature is completely dominated by the presence of the 300 K 
-        baffles.
+        Pictured above is the radio environment from 80-110 MHz as measured 
+        from the creek bed in the box canyon off of Cottonwood Road, 
+        approximately 15 miles southwest of Rangely.
     }
     \label{fig:sys-temp}
 \end{figure}
