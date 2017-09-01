@@ -54,12 +54,43 @@ mitigation of environmental factors.
 
 \section{Background and Theory}
 
+One aspect of the HYPERION instrument that has yet to be finalized is its 
+location -- where the instrument will be deployed to do the science it is 
+designed to accomplish. Since its inception, there has been frequent discussion 
+of using a site near Rangely, Colorado -- a tiny town in northwestern Colorado, 
+far removed from most typical sources of radio transmission and peppered with 
+convenient geology. With low RFI and a somewhat quieter radio sky, it seemed 
+like an ideal candidate in theory. So, we put it to the test -- what does the 
+radio environment around Rangely actually look like in the HYPERION frequency 
+band? And, assuming it's a good starting point, how can we optimize it to our 
+peculiar needs?
+
+To answer these questions, a series of three tests were conducted: one in the 
+driveway of Aaron Parsons' parents house, one up a box canyon with limited N-EW 
+exposure a short drive northeast, and another box canyon with limited exposure 
+in all directions about 15 miles southwest. This changing directional exposure 
+allowed us to begin investigating the effects of geological structure on the 
+radio environment -- in particular, to see if rock formations around our 
+antennas could serve as attenuators of ground-based sources of RFI. 
+
+In each of these tests, a broadband dipole was hooked up to the FieldFox 
+spectrum analyzer and used to record all that it picked up in a given frequency 
+band (either 80-110 MHz or 0-300 MHz). Each spectra held 1001 points and was 
+averaged for approximately 1 minute, collecting a maximum, minimum, and average 
+spectrum for each recording.
+
 \citep{pritchard-loeb2010}
 
 \begin{equation}
-    \label{eq:baffle-temp}
-    T_{baffle} = T_{sky} * 10^{dB/10} + T_{abs} * (1 - 10^{dB/10})
+    \label{eq:noise-figure}
+    NF = 10 \log_{10}(F)
 \end{equation}
+
+\begin{equation}
+    \label{eq:noise-temp}
+    F = \frac{T_0 + T}{T_0}
+\end{equation}
+
 
 \section{Method}
 
@@ -75,7 +106,26 @@ mitigation of environmental factors.
         from the creek bed in the box canyon off of Cottonwood Road, 
         approximately 15 miles southwest of Rangely.
     }
-    \label{fig:sys-temp}
+    \label{fig:107}
+\end{figure}
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/kara/src/python/berkeley/plotters/noise_floor_rangely.png}
+    \end{center}
+    \caption{
+        In this figure, we can see how the receiver temperature contributed to 
+        the overall system. Ideally, we would like to be able to lower the 
+        system temperature to the point where the synchrotron sky is the main 
+        term across the band. However, as is evident above, the receiver chain 
+        used in this particular testing trip introduced about 3400 K in 
+        brightness temperature, drowning out all but the absolute lowest 
+        frequencies of the synchrotron sky. All in all, the synchrotron sky is 
+        approximately 5 dB down from the overall system temperature at 70 MHz. 
+        In future testing, we will need to develop a lower temperature signal 
+        chain to mitigate this effect.
+    }
+    \label{fig:noise-floor}
 \end{figure}
 
 \section{Conclusions}
