@@ -1,0 +1,325 @@
+\documentclass[11pt]{article}
+\newcommand{\thetitle}{HYPERION Memo \#3: Testing the Radio Environment in 
+Rangely, CO}
+\newcommand{\theauthor}{Kara Kundert and Raj Biswas}
+\newcommand{\theauthorsemail}{kkundert@berkeley.edu, rbiswas@berkeley.edu}
+\newcommand{\thedate}{September 2017}
+% the following controls some aspects of how the text is displayed on the page
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.25in}
+\setlength{\oddsidemargin}{0in}
+
+% set up the page headers and footers
+\usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \lhead{\sffamily\slshape\small\thetitle}
+    \rhead{\sffamily\small\theauthor}
+    \cfoot{\sffamily\slshape\small\thepage}
+
+% support display of graphics
+\usepackage{graphicx}
+
+% the following control some aspects of how paragraphs are displayed
+\parindent=0pt
+\parskip=2ex
+
+% import library of technical symbols
+\usepackage{amsmath,amssymb,latexsym}
+
+% import bibliography tools
+\usepackage{natbib}
+\citestyle{aa}
+
+\begin{document}
+% print the title in san-serif font, in bold, in huge characters
+\title{
+    \sffamily\bfseries\huge
+    \thetitle \\
+}
+% print the author in san-serif font
+\author{
+    \sffamily\theauthor \\
+    \sffamily\theauthorsemail
+}
+\date{\thedate}
+\maketitle
+\sloppy
+
+\section{Introduction}
+
+This memo lays out the results of some initial radio environment testing in and 
+around Rangely, Colorado. It also aims to lay out some analysis of what these 
+results mean for the HYPERION instrument and suggests some new ideas for 
+mitigation of environmental factors.
+
+\section{Background and Theory}
+
+One aspect of the HYPERION instrument that has yet to be finalized is its 
+location -- where the instrument will be deployed to do the science it is 
+designed to accomplish. Since its inception, there has been frequent discussion 
+of using a site near Rangely, Colorado -- a tiny town in northwestern Colorado, 
+far removed from most typical sources of radio transmission and peppered with 
+convenient geology. With low RFI and a somewhat quieter radio sky, it seemed 
+like an ideal candidate in theory. So, we put it to the test -- what does the 
+radio environment around Rangely actually look like in the HYPERION frequency 
+band? And, assuming it's a good starting point, how can we optimize it to our 
+peculiar needs?
+
+To answer these questions, a series of three tests were conducted: one in the 
+driveway of Aaron Parsons' parents house, one up a box canyon with limited N-EW 
+exposure a short drive northeast, and another box canyon with limited exposure 
+in all directions about 15 miles southwest. This changing directional exposure 
+allowed us to begin investigating the effects of geological structure on the 
+radio environment -- in particular, to see if rock formations around our 
+antennas could serve as attenuators of ground-based sources of RFI. 
+
+
+\citep{pritchard-loeb2010}
+
+\begin{equation}
+    \label{eq:noise-figure}
+    NF = 10 \log_{10}(F)
+\end{equation}
+
+\begin{equation}
+    \label{eq:noise-temp}
+    F = \frac{T_0 + T}{T_0}
+\end{equation}
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/noise_floor_rangely.png}
+    \end{center}
+    \caption{
+        In this figure, we can see how the receiver temperature contributed to 
+        the overall system. Ideally, we would like to be able to lower the 
+        system temperature to the point where the synchrotron sky is the main 
+        term across the band. However, as is evident above, the receiver chain 
+        used in this particular testing trip introduced about 3400 K in 
+        brightness temperature, drowning out all but the absolute lowest 
+        frequencies of the synchrotron sky. All in all, the synchrotron sky is 
+        approximately 5 dB down from the overall system temperature at 70 MHz. 
+        In future testing, we will need to develop a lower temperature signal 
+        chain to mitigate this effect.
+    }
+    \label{fig:noise-floor}
+\end{figure}
+
+
+\section{Method}
+	In each of these tests, a broadband dipole was hooked up to the FieldFox 
+spectrum analyzer and used to record all that it picked up in a given frequency 
+band (either 80-110 MHz or 0-300 MHz). Each spectra held 1001 points and was 
+averaged for approximately 1 minute, collecting a maximum, minimum, and average 
+spectrum for each recording.
+	
+
+\section{Data and Analysis}
+In the beginning,the observations were taken at Aaron Parsons' parents' house(Figure 100-102).There was an RFI around 193.5 MHz,which was assumed to be emitted from the nearby oilfield towards NE.So,the observations were done with on-axis(null) and off-axis alignment of the antenna with respect to the oilfield.
+
+Then,a few measurements (Figure 103-106)were taken up the canyon where the place was shielded by the landscape towards W(horizon altitude 57 degrees),the altitude was minimum towards S (4 degrees) 
+
+Next,the antenna was mounted on the truck and various observations were taken at the house(figure 200),going towards cottonwood (figure 201-203), up Cottonwood (figure 204),upside down at a shallow box canyon (figure 205)
+It was found that the creek bed in the box canyon was affected with minimum RFI.The coordinates of the observation point are (39.988314,-108.986951).Listed in the following table are the nearby radio stations,their operating frequency and the power level observed from that site.
+\begin{center}
+	\begin{tabular}{ |c|c|c| } 
+ 	\hline
+ 	FM station		& Frequency(MHz)	& power level(dBm) \\
+ 	\hline
+ 	KXRQ Roosevelt & 94.3 & -50 \\
+ 	\hline
+ 	KIFX Vernal 	& 98.5	& -50 \\
+ 	\hline 
+ 	KCUA Naples 	& 92.5 & -57 \\
+ 	\hline
+ 	KMZK Clifton	& 106.9 	&-57 \\
+ 	\hline
+ 	(Undefined) 	& 106.4 & -57 \\
+ 	\hline
+ 	\end{tabular}
+\end{center}
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/101.jpeg}
+	\end{center}
+	\caption{
+	The radio environment at the driveway at 0-300 MHz with null off axis  
+	}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/102.jpeg}
+	\end{center}
+	\caption{
+		The radio environment at the driveway at 80-110 MHz  
+	}
+\end{figure}
+
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/102.jpeg}
+	\end{center}
+	\caption{
+		The radio environment at the driveway at 80-110 MHz  
+	}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/103.jpeg}
+	\end{center}
+	\caption{
+		The radio environment up the canyon at 80-110 MHz with the dipole axis along N-S direction,pointed towards min. horizontal altitude (4 degrees) 
+	}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/104.jpeg}
+	\end{center}
+	\caption{
+		The radio environment up the canyon at 80-110 MHz with the dipole axis along N-S direction,pointed towards max. horizontal altitude (57 degrees) 
+	}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/105.jpeg}
+	\end{center}
+	\caption{
+		The radio environment up the canyon at 0-300 MHz with the dipole axis along N-S direction
+	}
+\end{figure}
+
+
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/106.jpeg}
+	\end{center}
+	\caption{
+	The radio environment at 0-300 MHz up the canyon with the dipole axis oriented along the East-West direction  
+	}
+\end{figure}
+	
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/107.jpeg}
+    \end{center}
+    \caption{
+        Pictured above is the radio environment from 80-110 MHz,with the dipole axis along East-West as measured 
+        from the creek bed in the box canyon off of Cottonwood Road, 
+        approximately 15 miles southwest of Rangely.
+    }
+    \label{fig:107}
+\end{figure}
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/109.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along East-West at the creek bed 
+    }
+    \label{fig:109}
+\end{figure}
+
+
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/108.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 80-110 MHz,with the dipole axis along North-South at the creek bed in the box canyon off of Cottonwood Road
+    }
+    \label{fig:108}
+\end{figure}
+
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/110.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along North-South at the creek bed
+    }
+    \label{fig:110}
+\end{figure}
+
+
+
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/200.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along North-South at the creek bed
+    }
+    \label{fig:200}
+\end{figure}
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/201.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along North-South at the creek bed
+    }
+    \label{fig:201}
+\end{figure}
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/202.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along North-South at the creek bed
+    }
+    \label{fig:202}
+\end{figure}
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/203.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along North-South at the creek bed
+    }
+    \label{fig:203}
+\end{figure}
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/204.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along North-South at the creek bed
+    }
+    \label{fig:204}
+\end{figure}
+\begin{figure}
+    \begin{center}
+    \includegraphics[width=\linewidth]{/home/champ2/Desktop/DL/Plots/205.jpeg}
+    \end{center}
+    \caption{
+        The radio environment from 0-300 MHz,with the dipole axis along North-South at the creek bed
+    }
+    \label{fig:205}
+\end{figure}
+
+
+
+
+
+
+\section{Conclusions}
+
+It can be concluded that the site of the minimum RFI in these observations has the potential for deployment of the HYPERION antennas. The average power level of even the most prominent RFI here is always below -40 dB.More investigations are to follow.
+
+\bibliography{hyperion}{}
+\bibliographystyle{apj}
+
+\end{document}
+
+
+
+
+
